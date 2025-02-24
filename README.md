@@ -73,7 +73,7 @@ The model is trained using the following configuration and setup:
    - Monitors resource usage
 
 ### Model Architecture
-
+```
 LlamaForCausalLM(
   (model): LlamaModel(
     (embed_tokens): Embedding(49152, 128)
@@ -119,6 +119,7 @@ LlamaForCausalLM(
   )
   (lm_head): Linear(in_features=128, out_features=49152, bias=False)
 )
+```
 
 ### Key Features
 1. **Latent Attention**:
