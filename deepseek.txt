@@ -1,0 +1,71 @@
+Model Architecture:
+===================
+LlamaForCausalLM(
+  (model): LlamaModel(
+    (embed_tokens): Embedding(32256, 2048)
+    (layers): ModuleList(
+      (0-23): 24 x LlamaDecoderLayer(
+        (self_attn): LlamaAttention(
+          (q_proj): Linear(in_features=2048, out_features=2048, bias=False)
+          (k_proj): Linear(in_features=2048, out_features=2048, bias=False)
+          (v_proj): Linear(in_features=2048, out_features=2048, bias=False)
+          (o_proj): Linear(in_features=2048, out_features=2048, bias=False)
+        )
+        (mlp): LlamaMLP(
+          (gate_proj): Linear(in_features=2048, out_features=5504, bias=False)
+          (up_proj): Linear(in_features=2048, out_features=5504, bias=False)
+          (down_proj): Linear(in_features=5504, out_features=2048, bias=False)
+          (act_fn): SiLU()
+        )
+        (input_layernorm): LlamaRMSNorm((2048,), eps=1e-06)
+        (post_attention_layernorm): LlamaRMSNorm((2048,), eps=1e-06)
+      )
+    )
+    (norm): LlamaRMSNorm((2048,), eps=1e-06)
+    (rotary_emb): LlamaRotaryEmbedding()
+  )
+  (lm_head): Linear(in_features=2048, out_features=32256, bias=False)
+)
+
+Parameter Counts:
+=================
+Total Parameters: 1,346,471,936
+Trainable Parameters: 1,346,471,936
+
+Model Configuration:
+===================
+LlamaConfig {
+  "_attn_implementation_autoset": true,
+  "_name_or_path": "deepseek-ai/deepseek-coder-1.3b-base",
+  "architectures": [
+    "LlamaForCausalLM"
+  ],
+  "attention_bias": false,
+  "attention_dropout": 0.0,
+  "bos_token_id": 32013,
+  "eos_token_id": 32014,
+  "head_dim": 128,
+  "hidden_act": "silu",
+  "hidden_size": 2048,
+  "initializer_range": 0.02,
+  "intermediate_size": 5504,
+  "max_position_embeddings": 16384,
+  "mlp_bias": false,
+  "model_type": "llama",
+  "num_attention_heads": 16,
+  "num_hidden_layers": 24,
+  "num_key_value_heads": 16,
+  "pretraining_tp": 1,
+  "rms_norm_eps": 1e-06,
+  "rope_scaling": {
+    "factor": 4.0,
+    "rope_type": "linear",
+    "type": "linear"
+  },
+  "rope_theta": 100000,
+  "tie_word_embeddings": false,
+  "torch_dtype": "float16",
+  "transformers_version": "4.48.2",
+  "use_cache": true,
+  "vocab_size": 32256
+}

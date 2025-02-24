@@ -1,0 +1,45 @@
+LlamaForCausalLM(
+  (model): LlamaModel(
+    (embed_tokens): Embedding(49152, 768)
+    (layers): ModuleList(
+      (0-29): 30 x DeepSeekBlock(
+        (self_attn): MultiHeadLatentAttention(
+          (kv_proj_d): Linear(in_features=768, out_features=96, bias=False)
+          (q_proj_d): Linear(in_features=768, out_features=96, bias=False)
+          (k_proj_u): Linear(in_features=96, out_features=384, bias=False)
+          (q_proj_u): Linear(in_features=96, out_features=384, bias=False)
+          (v_proj_u): Linear(in_features=96, out_features=768, bias=False)
+          (rope_k): Linear(in_features=768, out_features=384, bias=False)
+          (rope_q): Linear(in_features=96, out_features=384, bias=False)
+          (o_proj): Linear(in_features=768, out_features=768, bias=False)
+          (rotary_emb): LlamaRotaryEmbedding()
+        )
+        (mlp): LlamaMLP(
+          (moe): DeepSeekMoE(
+            (shared_experts): ModuleList(
+              (0): DeepSeekExpert(
+                (gate_proj): Linear(in_features=768, out_features=2050, bias=False)
+                (up_proj): Linear(in_features=768, out_features=2050, bias=False)
+                (down_proj): Linear(in_features=2050, out_features=768, bias=False)
+                (act): SiLU()
+              )
+            )
+            (routed_experts): ModuleList(
+              (0-6): 7 x DeepSeekExpert(
+                (gate_proj): Linear(in_features=768, out_features=2050, bias=False)
+                (up_proj): Linear(in_features=768, out_features=2050, bias=False)
+                (down_proj): Linear(in_features=2050, out_features=768, bias=False)
+                (act): SiLU()
+              )
+            )
+            (router): Linear(in_features=768, out_features=7, bias=False)
+          )
+        )
+        (input_layernorm): LlamaRMSNorm()
+        (post_attention_layernorm): LlamaRMSNorm()
+      )
+    )
+    (norm): LlamaRMSNorm()
+  )
+  (lm_head): Linear(in_features=768, out_features=49152, bias=False)
+)
